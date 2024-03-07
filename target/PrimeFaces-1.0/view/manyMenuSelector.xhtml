@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="jakarta.faces.core">
+
+<h:head>
+    <title>Country Selector</title>
+</h:head>
+<h:body>
+    <h:form>
+        <p:outputLabel for="continents" value="Select Continent: " />
+        <p:selectCheckboxMenu id="continents" value="#{manyContinentSelector.selectedContinents}" 
+                              label="Continents" multiple="true">
+            <f:selectItems value="#{manyContinentSelector.continents}"/>
+            <p:ajax update="country" listener="#{manyContinentSelector.onContinentsChange}" />
+        </p:selectCheckboxMenu>
+
+        <p:outputLabel for="country" value="Select Country: " />
+        <p:selectOneMenu id="country" value="#{manyContinentSelector.country}">
+            <f:selectItem itemLabel="Select One" itemValue="" />
+            <f:selectItems value="#{manyContinentSelector.countries}" />
+        </p:selectOneMenu>
+    </h:form>
+</h:body>
+</html>
+
+

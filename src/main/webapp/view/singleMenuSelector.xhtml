@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="jakarta.faces.core">
+
+<h:head>
+    <title>Country Selector</title>
+</h:head>
+<h:body>
+    <h:form>
+        <p:outputLabel for="continent" value="Select Continent: " />
+        <p:selectOneMenu id="continent" value="#{singleContinentSelector.continent}">
+            <f:selectItem itemLabel="Select One" itemValue="" />
+            <f:selectItems value="#{singleContinentSelector.continents}" />
+            <p:ajax update="country" />
+        </p:selectOneMenu>
+
+        <p:outputLabel for="country" value="Select Country: " />
+        <p:selectOneMenu id="country" value="#{singleContinentSelector.country}">
+            <f:selectItem itemLabel="Select One" itemValue="" />
+            <f:selectItems value="#{singleContinentSelector.countries}" />
+        </p:selectOneMenu>
+    </h:form>
+</h:body>
+</html>
+
+
+
+
